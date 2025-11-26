@@ -5,15 +5,14 @@ import { useNavigate } from "react-router-dom";
 const TOTAL_LEVELS = 5;
 
 export default function Tournament() {
-      const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const [level, setLevel] = useState(1);
   const [scores, setScores] = useState({ player: 0, ai: 0, draws: 0 });
-  const [lastResult, setLastResult] = useState(null); 
+  const [lastResult, setLastResult] = useState(null);
   const [showFinal, setShowFinal] = useState(false);
 
   const handleComplete = (result) => {
-
     setLastResult(result);
     setScores((s) => {
       if (result === "X") return { ...s, player: s.player + 1 };
@@ -50,16 +49,19 @@ export default function Tournament() {
         Tic-Tac-Toe Game
       </h1>
 
-      
-      <h1
-        className="absolute top-6 right-12 mb-[10px] text-red-500 font-bold cursor-pointer"
-        onClick={() => {
-          localStorage.removeItem("token");
-          navigate("/", { replace: true }); 
-        }}
-      >
-        Logout
-      </h1>
+      <div className="w-full flex items-center justify-between px-4 py-4">
+        <h1 className="text-2xl font-bold">Tic-Tac-Toe Game</h1>
+
+        <button
+          className="text-red-500 font-semibold hover:text-red-600"
+          onClick={() => {
+            localStorage.removeItem("token");
+            navigate("/", { replace: true });
+          }}
+        >
+          Logout
+        </button>
+      </div>
 
       <div className="flex justify-between items-center mb-4">
         <div>

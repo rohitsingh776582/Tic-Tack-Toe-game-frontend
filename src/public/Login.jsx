@@ -28,7 +28,7 @@ function Login() {
     setError("");
 
     try {
-      const res = await axios.post("https://tic-tac-game-backand.onrender.com/api/auth/login", {
+      const res = await axios.post("http://localhost:3000/api/auth/login",{
         email: form.email,
         password: form.password,
       });
